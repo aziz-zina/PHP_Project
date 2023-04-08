@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Form.css">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 
 <body>
@@ -38,6 +38,7 @@ if (isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["tel"]) && i
         //INSERT Query
         $sql = "INSERT INTO user (Login, Password, Name, Email, Telephone, Type) VALUES ('$login', '$pass', '$name', '$email', '$tel', 4)";
         $retval = mysqli_query($conn, $sql);
+
         if (mysqli_affected_rows($conn) == 1) {
             $_SESSION["login"] = $row["nomeUtilizador"];
             $_SESSION["function"] = $row["Type"];
