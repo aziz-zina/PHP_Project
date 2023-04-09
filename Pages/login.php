@@ -40,7 +40,7 @@ if (isset($_POST["login"]) && isset($_POST["pass"])) {
         //Storing the login and the function in session variables
         $_SESSION["login"] = $login;
         $_SESSION["function"] = $row["Type"];
-        header("Refresh:2; url=test.php");
+        header("Refresh:2; url=homePage.php");
     }
 } else {
     session_destroy();
