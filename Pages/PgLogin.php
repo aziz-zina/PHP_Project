@@ -28,6 +28,7 @@ if (isset($_GET["state"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Form.css">
+    <link rel="stylesheet" href="bootstrap.css">
     <title>Login</title>
 </head>
 
@@ -41,8 +42,9 @@ if (isset($_GET["state"])) {
                 <label> Password: </label><br>
                 <input type="password" id="pass" name="pass" required placeholder="Password" /><br><br>
 
-                <input type="submit" id="btn" value="Login" name=""/><br>
-                <a href="PgRegister.php">Don't have an account? Register here.</a>
+                <button type="submit" class="btn btn-primary">Submit</button><br><br>
+                <a href="PgRegister.php">Don't have an account? Register here.</a><br>
+                <a href="homePage.php">Go back to home page</a>
             </center>
         </form>
     </div>

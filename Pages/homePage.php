@@ -6,88 +6,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
-    <style>
-        body {
-            padding: 30px;
-            background-image: url("dog-hairstyles.png");
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        .account-icon {
-            margin-top: -10px;
-            height: 50px;
-            width: auto;
-            padding-left: 10px;
-        }
-
-        .logout-icon {
-            margin-top: -10px;
-            height: 40px;
-            width: auto;
-            padding-left: 10px;
-        }
-
-        .buttons{
-            padding-left: 10px;
-            padding-top: 15px;
-            margin-left: 750px;
-        }
-
-        .buttons2{
-            padding-left: 0px;
-            padding-top: 15px;
-            margin-left: 750px;
-        }
-    </style>
+    <link rel="stylesheet" href="homePage.css">
     <title>Home Page</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
-                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <?php
-                    session_start();
-                    if(isset($_SESSION["login"])){
-                        echo '<li class="buttons2"><a href="test.php"><img class="account-icon" src="61205.png"></a><a href="test.php"><img class="logout-icon" src="logout.png"></a></li>';
-                    } else {
-                        echo '<li class="buttons"><button>Login</button><button>sign-in</button></li>';
-                        session_destroy();
-                    }
-                    ?>
-                </ul>
+    <div class="body">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Home Page</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <?php
+                        session_start();
+                        if (isset($_SESSION["login"])) {
+                            echo '<li class="buttons2"><a href="test.php"><img class="account-icon" src="61205.png"></a><a href="logout.php"><img class="logout-icon" src="logout.png"></a></li>';
+                        } else {
+                            echo '<li class="buttons"><a href="PgLogin.php"><button type="button" class="btn btn-outline-light">Login</button></a><a href="PgRegister.php"><button type="button" class="btn btn-outline-light">Sign-in</button></a></li>';
+                            session_destroy();
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <div class="banner">
+            <h1>My Pet's Hair Salon</h1>
+            <h3>The best place to cut & wash your pets.</h3>
+            <button type="button" class="btn btn-outline-primary">Schedule An Appointment!</button>
+        </div>
+    </div>
+    <div class="about-us">
+        <h2>About us</h2>
+        <div class="main-section">
+            <p class="mb-0">
+                We provide top-quality grooming services for your furry friends in a comfortable and calming
+                environment.
+                Our experienced groomers offer personalized attention and a range of services, from bathing and brushing
+                to haircuts and nail trims, all aimed at making your pet look and feel their best. Come visit us and
+                experience the difference our expert grooming can make for your beloved pet.
+            </p>
+            <img src="cats-and-dogs.jpg" class="abtUsImg">
+        </div>
+    </div>
+    <div class="services">
+        <h2>Our services</h2>
+        <div class="service-section">
+            <div class="service-box toast-body">
+                <img src="diy-tips-to-bathe-your-cat.jpg" class="cat-wash">
+                <button type="button" class="btn btn-primary">Wash</button>
+            </div>
+            <div class="service-box toast-body">
+                <img src="dog-cut.png" class="dog-cut">
+                <button type="button" class="btn btn-primary">Cut</button>
             </div>
         </div>
-    </nav>
-
-    <br>
-    <div class="banner">
-        <h1>My Pet's Hair Salon</h1>
-        <h3>The best place to cut and wash your pets.</h3>
-        <button class="contact">Schedule An Appointment!</button>
     </div>
 </body>
 
