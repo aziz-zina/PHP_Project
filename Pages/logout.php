@@ -20,4 +20,4 @@
 <?php
 session_start();
 session_unset();
-header("Refresh:2; url=PgLogin.php");
+header("Refresh:2; url=PgLogin.php?state=4");

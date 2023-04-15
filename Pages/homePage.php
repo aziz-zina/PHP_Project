@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (isset($_GET["state"])) {
+    switch ($_GET["state"]) {
+        case 1:
+            echo "<script>alert('You are not authorized yet');</script>";
+            break;
+        case 2:
+            echo "<script>alert('You are not authorized yet');</script>";
+            break;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,9 +46,8 @@
                             <a class="nav-link" href="#">About</a>
                         </li>
                         <?php
-                        session_start();
-                        if (isset($_SESSION["login"])) {
-                            echo '<li class="buttons2"><a href="test.php"><img class="account-icon" src="61205.png"></a><a href="logout.php"><img class="logout-icon" src="logout.png"></a></li>';
+                        if (isset($_SESSION["login"]) && ($_SESSION["function"] < 3)) {
+                            echo '<li class="buttons2"><a href="Redirection.php"><img class="account-icon" src="user-icon.png"></a><a href="logout.php"><img class="logout-icon" src="logout.png"></a></li>';
                         } else {
                             echo '<li class="buttons"><a href="PgLogin.php"><button type="button" class="btn btn-outline-light">Login</button></a><a href="PgRegister.php"><button type="button" class="btn btn-outline-light">Sign-in</button></a></li>';
                             session_destroy();
@@ -51,7 +63,7 @@
         <div class="banner">
             <h1>My Pet's Hair Salon</h1>
             <h3>The best place to cut & wash your pets.</h3>
-            <button type="button" class="btn btn-outline-primary">Schedule An Appointment!</button>
+            <a href="PgReservation.php"><button type="button" class="btn btn-outline-primary">Schedule An Appointment!</button></a>
         </div>
     </div>
     <div class="about-us">
