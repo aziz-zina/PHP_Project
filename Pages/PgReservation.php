@@ -1,13 +1,23 @@
 <?php
 session_start();
 if (isset($_SESSION["login"])) {
+    echo "<script>alert('".$_SESSION["function"]."');</script>";
     if ($_SESSION["function"] == 4) {
         header("location:PgLogin.php?state=3");
     }
     $today = date("Y-m-d");
 } else {
-    session_destroy();
     header("location:PgLogin.php?state=2");
+}
+if (isset($_GET["state"])) {
+    switch ($_GET["state"]) {
+        case 1:
+            echo "<script>alert('You have to fill this form first!!');</script>";
+            break;
+        case 2:
+            echo "<script>alert('You need to choose a service first !');</script>";
+            break;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -31,7 +41,7 @@ if (isset($_SESSION["login"])) {
 
 <body>
     <div id="frm2">
-        <form name="f1" action="test.php" method="POST">
+        <form name="f1" action="reservation.php" method="POST">
             <center>
                 <label> User: </label><br>
                 <input type="text" value="<?php echo $_SESSION["login"] ?>" readonly><br><br>
