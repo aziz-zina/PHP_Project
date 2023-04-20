@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
+  if ($_SESSION["function"] != 1) {
+    header("location:homePage.php?state=3");
+  }
+} else {
+  header("localtion: PgLogin.php?state=2");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +17,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Form.css">
-  <title>Login</title>
+  <title>Admin Interface</title>
   <style>
     #frminterface {
 
@@ -48,6 +59,26 @@
       /* add margin between buttons */
       cursor: pointer;
     }
+
+    .button2 {
+      background-color: #E5C49D;
+      /* set background color */
+      border: 1px solid #000000;
+      /* set border */
+      color: #010101;
+      font-weight: bold;
+
+      padding: 40px 80px;
+      /* set padding */
+      margin-left: 270px;
+      /* add margin between buttons */
+      cursor: pointer;
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
   </style>
 </head>
 
@@ -55,19 +86,12 @@
   <div id="frminterface">
     <form name="f1">
       <div class="button-container" id="box">
-        <button type="submit" formaction="ManagemenetReservation.php" class="button">MANAGEMENT OF RESERVATION</button>
-        <button class="button" type="submit" formaction="ManagemenetPersonal.php"> MANAGEMENT PERSONAL ACCOUNT</button>
+        <a href=""><button type="submit" class="button">MANAGEMENT OF RESERVATION</button></a>
+        <a href=""><button class="button" type="submit"> MANAGEMENT PERSONAL ACCOUNT</button></a>
       </div>
-
-
-      <button class="button" style="margin: 0;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-
-  "> USER <br> MANAGEMENT</button>
+      <a href="userManagement.php"><button class="button2" type="button"> USER MANAGEMENT</button></a>
+      <br>
+      <a href="./homePage.php"><img src="./home.png" alt="home.png"></a>
 
     </form>
   </div>

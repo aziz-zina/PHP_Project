@@ -1,9 +1,8 @@
 <?php
 session_start();
 if (isset($_SESSION["login"])) {
-    echo "<script>alert('".$_SESSION["function"]."');</script>";
     if ($_SESSION["function"] == 4) {
-        header("location:PgLogin.php?state=3");
+        header("location:homePage.php?state=1");
     }
     $today = date("Y-m-d");
 } else {
