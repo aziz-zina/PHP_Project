@@ -32,7 +32,14 @@
             margin-top: 3%;
             height: 60px;
             width: 60px;
-            margin-left: 1370px;
+            margin-left: 1270px;
+        }
+
+        .button2{
+            margin-top: 3%;
+            height: 60px;
+            width: 60px;
+            margin-left: 30px;
         }
     </style>
 
@@ -40,6 +47,7 @@
 
 <body>
     <a href="./homePage.php"><img src="./home.png" alt="home.png" class="button"></a>
+    <a href="PgRegister.php"><img src="./add-user.png" alt="home.png" class="button2"></a>
     <div class="table-div">
         <table class="table table-hover">
             <thead style="background-color: #c3a48f;">
@@ -56,7 +64,7 @@
             <tbody>
                 <?php
                 session_start();
-                if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
+                if (isset($_SESSION["login"]) && ($_SESSION["function"] == 1)) {
                     include '../database/basedados.h';
                     $sql = "SELECT * FROM user";
                     $retval = mysqli_query($conn, $sql);
@@ -83,7 +91,7 @@
                         }
                         if ($row['Type'] != 1) {
                             if ($row['Type'] == 4) {
-                                echo "<td><a href='delete_book.php?'><img src='check-mark.png' class='management-icon'></a></td>";
+                                echo "<td><a href='validate.php?'><img src='check-mark.png' class='management-icon'></a></td>";
                             } else {
                                 echo "<td><a href='delete_book.php?'></a></td>";
                             }

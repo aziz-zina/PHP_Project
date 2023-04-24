@@ -40,9 +40,15 @@ if (isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["tel"]) && i
         $retval = mysqli_query($conn, $sql);
 
         if (mysqli_affected_rows($conn) == 1) {
-            $_SESSION["login"] = $row["nomeUtilizador"];
-            $_SESSION["function"] = $row["Type"];
-            header("refresh:2;url = PgLogin.php");
+            if(isset($_SESSION["login"])){
+                if($_SESSION["function"] == 1){
+                    header("refresh:2;url = userManagement.php");
+                } else {
+                    header("refresh:2;url = PgLogin.php");
+                }
+            }else {
+                header("refresh:2;url = PgLogin.php");
+            }
         }
     } else {
         header("refresh:2;url = PgRegister.php?state=1");
