@@ -20,25 +20,23 @@
 <?php
 session_start();
 if (isset($_SESSION["login"])) {
-    
-    if ($_SESSION["function"]==1) {    
+
+    if ($_SESSION["function"] == 1) {
         //Storing the form values
-    
-    $val = $_GET["val"];
-    //Connecting to the database
-    include '../database/basedados.h';
-    //SQL Query
-    $sql="UPDATE user SET type = 3 WHERE Login ='$val' ";
 
-    $update = mysqli_query($conn, $sql);
-    header("refresh:2;url = userManagement.php");
+        $val = $_GET["val"];
+        //Connecting to the database
+        include '../database/basedados.h';
+        //SQL Query
+        $sql = "UPDATE user SET type = 3 WHERE Login ='$val' ";
 
-    }
-    else
-    {
+        $update = mysqli_query($conn, $sql);
+        header("refresh:2;url = userManagement.php");
+
+    } else {
         header("refresh:5;url = homePage.php?state=3"); //If the form is not filled, it goes back to the login page
     }
-    
-}   else {
+
+} else {
     header("refresh:2;url = PgLogin.php?state=2"); //If the form is not filled, it goes back to the login page
 }

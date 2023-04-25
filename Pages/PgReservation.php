@@ -40,7 +40,7 @@ if (isset($_GET["state"])) {
 
 <body>
     <div id="frm2">
-        <form name="f1" action="reservation.php" method="POST">
+        <form name="f1" action="pickEmployee.php" method="POST">
             <center>
                 <label> User: </label><br>
                 <input type="text" value="<?php echo $_SESSION["login"] ?>" readonly><br><br>
