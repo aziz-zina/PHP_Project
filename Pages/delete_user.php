@@ -20,20 +20,17 @@
 <?php
 session_start();
 
-if ((isset($_POST["login"]) &&  isset($_POST["tel"]) && isset($_POST["name"]) && isset($_POST["email"]))){
+if (isset($_SESSION["login"]) &&  ($_SESSION["function"]==1)  ){
+
     //Storing the form values
-    $login = $_POST["login"];   
-    $name = $_POST["name"];
-    $tel = $_POST["tel"];
-    $email = $_POST["email"];
+
+    $login = $_GET["val"];  
+
     //Connecting to the database
     include '../database/basedados.h';
  
-    $sqli="UPDATE user 
-    SET Email = '$email',
-     Name = '$name',
-      Telephone = '$tel'
-      WHERE Login ='$login'";
+    $sqli="DELETE FROM user WHERE Login ='$login'";  
+   
     $retval = mysqli_query($conn,$sqli);
     if (!$retval) {
         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 

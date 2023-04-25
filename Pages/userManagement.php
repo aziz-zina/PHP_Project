@@ -91,15 +91,15 @@
                         }
                         if ($row['Type'] != 1) {
                             if ($row['Type'] == 4) {
-                                echo "<td><a href='validate.php?'><img src='check-mark.png' class='management-icon'></a></td>";
+                                echo "<td><a href='validate.php?val=".$row['Login']."'><img src='check-mark.png' class='management-icon'></a></td>";
                             } else {
-                                echo "<td><a href='delete_book.php?'></a></td>";
+                                echo "<td><a href='delete_user.php?val=".$row['Login']."'></a></td>";
                             }
-                            echo "<td><a href='edit_book.php?'><img src='edit.png' class='management-icon'></a></td>";
-                            echo "<td><a href='delete_book.php?'><img src='remove.png' class='management-icon'></a></td>";
+                            echo "<td><a href='Pgedit_user.php?val=".$row['Login']."'><img src='edit.png' class='management-icon'></a></td>";
+                            echo "<td><a href='delete_user.php?val=".$row['Login']."'><img src='remove.png' class='management-icon'></a></td>";
                         } else {
                             echo "<td></td>";
-                            echo "<td><a href='edit_book.php?'><img src='edit.png' class='management-icon'></a></td>";
+                            echo "<td><a href='Pgedit_user.php?val=".$row['Login']."'><img src='edit.png' class='management-icon'></a></td>";
                             echo "<td></td>";
                         }
                         echo "</tr>";
