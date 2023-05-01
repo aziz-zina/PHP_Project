@@ -23,6 +23,7 @@ if (isset($_GET["state"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="homePage.css">
+
     <title>Home Page</title>
 </head>
 
@@ -43,10 +44,11 @@ if (isset($_GET["state"])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <!-- <a class="nav-link" href="#">Features</a> -->
+                            <a class="nav-link" href="#down">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#idservices">Our services</a>
                         </li>
                         <?php
                         if (isset($_SESSION["login"])) {
@@ -66,10 +68,12 @@ if (isset($_GET["state"])) {
         <div class="banner">
             <h1>My Pet's Hair Salon</h1>
             <h3>The best place to cut & wash your pets.</h3>
-            <a href="PgReservation.php"><button type="button" class="btn btn-outline-primary">Schedule An Appointment!</button></a>
+            <a href="PgReservation.php"><button type="button" class="btn btn-outline-primary">Schedule An
+                    Appointment!</button></a>
         </div>
     </div>
-    <div class="about-us">
+    <div class="about-us" id="down">
+        <br><br><br>
         <h2>About us</h2>
         <div class="main-section">
             <p class="mb-0">
@@ -84,7 +88,7 @@ if (isset($_GET["state"])) {
     </div>
     <div class="services">
         <h2>Our services</h2>
-        <div class="service-section">
+        <div class="service-section" id="idservices">
             <div class="service-box toast-body">
                 <img src="diy-tips-to-bathe-your-cat.jpg" class="cat-wash">
                 <button type="button" class="btn btn-primary">Wash</button>

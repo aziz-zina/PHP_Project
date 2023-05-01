@@ -14,6 +14,9 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
     } else {
         header("refresh:2;url = PgReservation.php?state=2"); //If the user doesn't choose a service, he goes back to the form
     }
+    if (isset($_POST["idReservation"])) {
+        $id = $_POST["idReservation"];
+    }
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -36,8 +39,10 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
 
     <body>
         <div id="frm2">
-            <form name="f1" action="reservation.php" method="POST">
+            <form name="f1" action="Reservation.php" method="POST">
                 <center>
+                    <input type="hidden" name="idReservation" value="<?php echo $id ?>" />
+
                     <label> User: </label><br>
                     <input type="text" value="<?php echo $login ?>" readonly><br><br>
 
@@ -88,7 +93,6 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
                     </select><br><br>
 
                     <button type="submit" class="btn btn-primary">Submit</button><br><br>
-                    <a href="PgLogin.php">Login here.</a><br>
                     <a href="homePage.php">Go back to home page</a><br><br>
                 </center>
             </form>

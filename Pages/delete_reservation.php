@@ -20,25 +20,31 @@
 <?php
 session_start();
 
-if (isset($_SESSION["login"]) && ($_SESSION["function"] == 1)) {
+if (isset($_SESSION["login"]) && isset($_GET["id"])) {
 
     //Storing the form values
-
-    $login = $_GET["val"];
+    $id = $_GET["id"];
 
     //Connecting to the database
     include '../database/basedados.h';
 
-    $sqli = "DELETE FROM user WHERE Login ='$login'";
+    $sqli = "DELETE FROM reservation WHERE idReservation ='$id'";
 
     $retval = mysqli_query($conn, $sqli);
     if (!$retval) {
         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
     }
     #$num = mysqli_num_rows($retval); //Checking how many rows are selected
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
-
+    if ($_SESSION["login"] == 'admin') {
+        header("refresh:2; url = ADMIN_personalReservationManagement.php"); //If the form is not filled, goes back to the register page
+    } else {
+        header("refresh:2; url = ADMIN_personalReservationManagement.php"); //If the form is not filled, goes back to the register page
+    }
 } else {
     echo "WE WILL FORWARD YOU TO THE MANAGMENET PAGE";
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
+    if ($_SESSION["login"] == 'admin') {
+        header("refresh:2; url = ADMIN_personalReservationManagement.php"); //If the form is not filled, goes back to the register page
+    } else {
+        header("refresh:2; url = ADMIN_personalReservationManagement.php"); //If the form is not filled, goes back to the register page
+    }
 }

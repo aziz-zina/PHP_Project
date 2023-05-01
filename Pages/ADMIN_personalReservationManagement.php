@@ -53,6 +53,8 @@
             <thead style="background-color: #c3a48f;">
                 <tr>
                     <th scope="col" style="color: black;">Date</th>
+                    <th scope="col" style="color: black;">Name</th>
+
                     <th scope="col" style="color: black;">Time</th>
                     <th scope="col" style="color: black;">Pet</th>
                     <th scope="col" style="color: black;">Service Type</th>
@@ -66,13 +68,14 @@
                 session_start();
                 if (isset($_SESSION["login"])) {
                     include '../database/basedados.h';
-                    $sql = "SELECT * FROM reservation where idClient='" . $_SESSION["login"] . "' ORDER BY time ";
+                    $sql = "SELECT * FROM reservation ORDER BY idClient ";
                     $retval = mysqli_query($conn, $sql);
                     if (!$retval) {
                         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
                     }
                     while ($row = mysqli_fetch_array($retval)) {
                         echo "<tr class='table-secondary'><td>" . $row['date'] . "</td>";
+                        echo "<td>" . $row['idClient'] . "</td>";
                         echo "<td>" . $row['time'] . "</td>";
                         echo "<td>" . $row['pet'] . "</td>";
                         echo "<td>" . $row['serviceType'] . "</td>";

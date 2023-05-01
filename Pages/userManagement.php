@@ -28,14 +28,14 @@
             height: 40px;
         }
 
-        .button{
+        .button {
             margin-top: 3%;
             height: 60px;
             width: 60px;
             margin-left: 1270px;
         }
 
-        .button2{
+        .button2 {
             margin-top: 3%;
             height: 60px;
             width: 60px;
@@ -91,15 +91,15 @@
                         }
                         if ($row['Type'] != 1) {
                             if ($row['Type'] == 4) {
-                                echo "<td><a href='validate.php?val=".$row['Login']."'><img src='check-mark.png' class='management-icon'></a></td>";
+                                echo "<td><a href='validate.php?val=" . $row['Login'] . "'><img src='check-mark.png' class='management-icon'></a></td>";
                             } else {
-                                echo "<td><a href='delete_user.php?val=".$row['Login']."'></a></td>";
+                                echo "<td><a href='delete_user.php?val=" . $row['Login'] . "'></a></td>";
                             }
-                            echo "<td><a href='Pgedit_user.php?val=".$row['Login']."'><img src='edit.png' class='management-icon'></a></td>";
-                            echo "<td><a href='delete_user.php?val=".$row['Login']."'><img src='remove.png' class='management-icon'></a></td>";
+                            echo "<td><a href='Pgedit_user.php?val=" . $row['Login'] . "'><img src='edit.png' class='management-icon'></a></td>";
+                            echo "<td><a href='delete_user.php?val=" . $row['Login'] . "'><img src='remove.png' class='management-icon'></a></td>";
                         } else {
                             echo "<td></td>";
-                            echo "<td><a href='Pgedit_user.php?val=".$row['Login']."'><img src='edit.png' class='management-icon'></a></td>";
+                            echo "<td><a href='Pgedit_user.php?val=" . $row['Login'] . "'><img src='edit.png' class='management-icon'></a></td>";
                             echo "<td></td>";
                         }
                         echo "</tr>";

@@ -31,19 +31,19 @@ if (isset($_GET["state"])) {
         <form name="f1" action="register.php" method="POST">
             <center>
                 <label> Login: </label><br>
-                <input type="text" id="login" name="login" required placeholder="Login"/><br><br>
-                
+                <input type="text" id="login" name="login" required placeholder="Login" /><br><br>
+
                 <label> Email: </label><br>
-                <input type="email" id="email" name="email" required placeholder="E-mail"/><br><br>
+                <input type="email" id="email" name="email" required placeholder="E-mail" /><br><br>
 
                 <label> Name: </label><br>
-                <input type="text" id="name" name="name" required placeholder="Name"/><br><br>
+                <input type="text" id="name" name="name" required placeholder="Name" /><br><br>
 
                 <label style="margin-left: -120px;"> Telephone: </label><br>
-                <input type="tel" id="tel" name="tel" required placeholder="Telephone number"/><br><br>
+                <input type="tel" id="tel" name="tel" required placeholder="Telephone number" /><br><br>
 
                 <label style="margin-left: -126px;"> Password: </label><br>
-                <input type="password" id="pass" name="pass" required placeholder="Password"/><br><br>
+                <input type="password" id="pass" name="pass" required placeholder="Password" /><br><br>
 
                 <button type="submit" class="btn btn-primary">Submit</button><br><br>
                 <a href="PgLogin.php">Login here.</a><br>

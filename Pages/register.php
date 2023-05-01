@@ -40,13 +40,13 @@ if (isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["tel"]) && i
         $retval = mysqli_query($conn, $sql);
 
         if (mysqli_affected_rows($conn) == 1) {
-            if(isset($_SESSION["login"])){
-                if($_SESSION["function"] == 1){
+            if (isset($_SESSION["login"])) {
+                if ($_SESSION["function"] == 1) {
                     header("refresh:2;url = userManagement.php");
                 } else {
                     header("refresh:2;url = PgLogin.php");
                 }
-            }else {
+            } else {
                 header("refresh:2;url = PgLogin.php");
             }
         }

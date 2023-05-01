@@ -20,13 +20,13 @@
 session_start();
 if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
     // Cheking the function of the current user
-    if($_SESSION["function"] == 1){
+    if ($_SESSION["function"] == 1) {
         header("refresh:2;url = adminInterface.php"); // If the user is an admin he will go the admin page
-    }else if($_SESSION["function"] == 2){
+    } else if ($_SESSION["function"] == 2) {
         header("refresh:2;url = employeeInterface.php"); // If the user is an employee he will go the employee page
-    }else if($_SESSION["function"] == 3){
+    } else if ($_SESSION["function"] == 3) {
         header("refresh:2;url = userInterface.php"); // If the user is a user he will go the user page
-    }else if($_SESSION["function"] == 4){
+    } else if ($_SESSION["function"] == 4) {
         header("refresh:2;url = homePage.php?state=1"); // If the user is not valid he will go to the home page
     }
 } else {

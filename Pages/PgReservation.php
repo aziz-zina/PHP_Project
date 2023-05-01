@@ -30,7 +30,7 @@ if (isset($_GET["state"])) {
     <link rel="stylesheet" href="bootstrap.css">
     <title>Reservation</title>
     <style>
-        .check-box{
+        .check-box {
             display: grid;
             text-align: center;
             margin-left: 40px;
@@ -50,7 +50,7 @@ if (isset($_GET["state"])) {
                     min="<?php echo $today ?>" /><br><br>
 
                 <label> Time: </label><br>
-                <input type="time" id="time" name="time" required min="09:00:00" max="18:00:00" /><br><br>
+                <input type="time" id="time" name="time" required min="09:00:00" max="18:00:00" step="1800" /><br><br>
 
                 <label style="margin-left: -120px;"> Pick a Pet: </label><br>
                 <select name="pet">
@@ -61,13 +61,15 @@ if (isset($_GET["state"])) {
                 <label style="margin-left: -90px;"> Pick a service: </label><br>
                 <div class="check-box">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Cut" id="flexCheckDefault" name="service[]">
+                        <input class="form-check-input" type="checkbox" value="Cut" id="flexCheckDefault"
+                            name="service[]">
                         <label class="form-check-label" for="flexCheckDefault">
                             Cut
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Wash" id="flexCheckChecked" name="service[]">
+                        <input class="form-check-input" type="checkbox" value="Wash" id="flexCheckChecked"
+                            name="service[]">
                         <label class="form-check-label" for="flexCheckChecked">
                             Wash
                         </label>

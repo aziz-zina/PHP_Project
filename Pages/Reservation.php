@@ -30,7 +30,12 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
     //Connecting to the database
     include '../database/basedados.h';
     //INSERT Query
-    $sql = "INSERT INTO reservation (idClient, date, time, pet, serviceType, EmployeeUser) VALUES ('$login', '$date', '$time', '$pet', '$service', '$employee')";
+    if (isset($_POST["idReservation"])) {
+        $id = $_POST["idReservation"];
+        $sql = "UPDATE reservation SET 	EmployeeUser = '$employee', date = '$date', time = '$time', pet = '$pet', serviceType = '$service' WHERE idReservation = '$id'";
+    } else {
+        $sql = "INSERT INTO reservation (idClient, date, time, pet, serviceType, EmployeeUser) VALUES ('$login', '$date', '$time', '$pet', '$service', '$employee')";
+    }
     $retval = mysqli_query($conn, $sql);
 
     if (mysqli_affected_rows($conn) == 1) {

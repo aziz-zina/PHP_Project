@@ -4,7 +4,7 @@
 session_start();
 if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
     include '../database/basedados.h';
-    $val = $_GET['val'];
+    $val = $_SESSION["login"];
     $retval = mysqli_query($conn, "SELECT * FROM user WHERE Login='$val'");
     if (!$retval) {
         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
@@ -16,12 +16,8 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
         $phone = $row['Telephone']; // Print a single column data
     }
 
-    //    $sqli="UPDATE user SET Email = ".$mail." , Name = ".$name." , Telephone = ".$phone."  WHERE Login =".$val."";
-    //     # $update = mysqli_query($conn,$sqli);
-
 } else {
-
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
+    header("refresh:2;url = homePage.php?state=3"); //If the form is not filled, goes back to the register page
 }
 
 #now update
@@ -40,7 +36,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
 
 <body>
     <div id="frm2">
-        <form name="f1" action="edit_user.php" method="POST">
+        <form name="f1" action="personal_info.php" method="POST">
             <center>
                 <label> Login: </label><br>
                 <input type="text" id="login" readonly name="login" required placeholder="Login"
@@ -64,7 +60,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
 
 
                 <button type="submit" class="btn btn-primary">EDIT</button><br><br>
-                <a href="userManagement.php">Go Back.</a><br>
+                <a href="Redirection.php">Go Back.</a><br>
             </center>
         </form>
     </div>

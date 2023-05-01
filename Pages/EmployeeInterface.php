@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(isset($_SESSION["login"]) && isset($_SESSION["function"])){
-  if($_SESSION["function"] > 2){
+if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
+  if ($_SESSION["function"] > 2) {
     header("location:homePage.php?state=3");
   }
-}else {
+} else {
   header("localtion: PgLogin.php?state=2");
 }
 ?>
@@ -53,7 +53,7 @@ if(isset($_SESSION["login"]) && isset($_SESSION["function"])){
       /* add margin between buttons */
     }
 
-    img{
+    img {
       width: 60px;
       height: 60px;
       display: flex;
@@ -65,8 +65,9 @@ if(isset($_SESSION["login"]) && isset($_SESSION["function"])){
   <div id="frminterface">
     <form name="f1">
       <div class="button-container">
-        <button type="submit" formaction="ManagemenetReservation.php" class="button">MANAGEMENT OF RESERVATION</button>
-        <button class="button" type="submit" formaction="ManagemenetPersonal.php"> MANAGEMENT PERSONAL ACCOUNT</button>
+        <a href="Employee_ManagementReservation.php"><button class="button" type="button">MANAGEMENT OF PERSONAL
+            RESERVATION</button></a>
+        <button class="button" type="submit" formaction="Pgpersonal_info.php"> MANAGEMENT PERSONAL ACCOUNT</button>
       </div>
       <a href="./homePage.php"><img src="./home.png" alt="home.png"></a>
 

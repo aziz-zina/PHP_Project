@@ -66,7 +66,7 @@
                 session_start();
                 if (isset($_SESSION["login"])) {
                     include '../database/basedados.h';
-                    $sql = "SELECT * FROM reservation where idClient='" . $_SESSION["login"] . "' ORDER BY time ";
+                    $sql = "SELECT * FROM reservation where EmployeeUser='" . $_SESSION["login"] . "' ORDER BY time ";
                     $retval = mysqli_query($conn, $sql);
                     if (!$retval) {
                         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 

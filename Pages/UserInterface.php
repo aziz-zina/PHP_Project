@@ -68,8 +68,8 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
     <form name="f1">
       <div class="button-container">
         <a href="./personalReservationManagement.php"><button class="button" type="button">MANAGEMENT OF PERSONAL
-          RESERVATION</button></a>
-        <button class="button" type="submit" formaction="ManagemenetPersonal.php"> MANAGEMENT PERSONAL ACCOUNT</button>
+            RESERVATION</button></a>
+        <button class="button" type="submit" formaction="Pgpersonal_info.php"> MANAGEMENT PERSONAL ACCOUNT</button>
       </div>
       <a href="./homePage.php"><img src="./home.png" alt="home.png"></a>
 
