@@ -56,7 +56,7 @@ if (isset($_SESSION["login"]) && isset($_GET["id"])) {
 
                 <label> Time: </label><br>
                 <input type="time" id="time" name="time" required min="09:00:00" max="18:00:00"
-                    value="<?php echo $time ?>" /><br><br>
+                    value="<?php echo $time ?>" step="1800"/><br><br>
 
                 <label style="margin-left: -120px;"> Pick a Pet: </label><br>
                 <select name="pet">

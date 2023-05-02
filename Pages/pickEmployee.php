@@ -2,10 +2,10 @@
 session_start();
 if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
     $login = $_SESSION["login"];
-    if($_SESSION["function"] < 3){
-        if(isset($_POST["user"])){
+    if ($_SESSION["function"] < 3) {
+        if (isset($_POST["user"])) {
             $user = $_POST["user"];
-        }else {
+        } else {
             header("location:PgReservation.php?state=1");
         }
     }
@@ -51,9 +51,9 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
                 <center>
                     <label> User: </label><br>
                     <?php
-                    if(isset($_POST["user"])){
+                    if (isset($_POST["user"])) {
                         echo "<input type='text' name='user' value='" . $user . "' readonly><br><br>";
-                    }else {
+                    } else {
                         echo "<input type='text' name='user' value='" . $login . "' readonly><br><br>";
                     }
                     ?>
@@ -65,8 +65,8 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
                     <input type="text" name="service" value="<?php echo $srv ?>" readonly><br><br>
 
                     <label> Date: </label><br>
-                    <input type="date" id="date" name="date" required placeholder="date" min="<?php echo $today ?>"
-                        value="<?php echo $date ?>" readonly /><br><br>
+                    <input type="date" id="date" name="date" required placeholder="date" value="<?php echo $date ?>"
+                        readonly /><br><br>
 
                     <label> Time: </label><br>
                     <input type="time" id="time" name="time" value="<?php echo $time ?>" readonly /><br><br>
