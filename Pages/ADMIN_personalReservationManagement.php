@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
-    <title>User management</title>
+    <title>Personal management</title>
     <style>
         body {
             background: #eee;
@@ -66,7 +66,7 @@
             <tbody>
                 <?php
                 session_start();
-                if (isset($_SESSION["login"])) {
+                if (isset($_SESSION["login"]) && $_SESSION["function"] == 1) {
                     include '../database/basedados.h';
                     $sql = "SELECT * FROM reservation ORDER BY idClient ";
                     $retval = mysqli_query($conn, $sql);
@@ -85,6 +85,8 @@
                         echo "</tr>";
                     }
                     mysqli_close($conn);
+                }else {
+                    header("location:homePage.php?state=3");
                 }
                 ?>
             </tbody>

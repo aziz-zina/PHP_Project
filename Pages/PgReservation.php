@@ -16,6 +16,9 @@ if (isset($_GET["state"])) {
         case 2:
             echo "<script>alert('You need to choose a service first !');</script>";
             break;
+        case 3:
+            echo "<script>alert('You need to choose a unique time and date !');</script>";
+            break;
     }
 }
 ?>
@@ -42,9 +45,50 @@ if (isset($_GET["state"])) {
     <div id="frm2">
         <form name="f1" action="pickEmployee.php" method="POST">
             <center>
+                <?php
+                if($_SESSION["function"] == 1){
+                ?>
+                <label style="margin-left: -95px;"> Pick the user: </label><br>
+                <select name="user">
+                    <option value="">--Choose a user--</option>
+                    <?php
+                    include '../database/basedados.h';
+                    $sql = "SELECT * FROM user WHERE Type <> 4";
+                    $retval = mysqli_query($conn, $sql);
+                    if (!$retval) {
+                        die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
+                    }
+                    while ($row = mysqli_fetch_array($retval)) {
+                        echo "<option value='" . $row['Login'] . "'>" . $row['Login'] . "</option>";
+                    }
+                    ?>
+                </select><br><br>
+                <?php                    
+                } else if($_SESSION["function"] == 2){
+                ?>
+                <label style="margin-left: -95px;"> Pick the user: </label><br>
+                <select name="user">
+                    <option value="">--Choose a user--</option>
+                    <?php
+                    include '../database/basedados.h';
+                    $sql = "SELECT * FROM user WHERE type = 3 OR (type = 2 AND login = '" . $_SESSION["login"] . "');";
+                    $retval = mysqli_query($conn, $sql);
+                    if (!$retval) {
+                        die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
+                    }
+                    while ($row = mysqli_fetch_array($retval)) {
+                        echo "<option value='" . $row['Login'] . "'>" . $row['Login'] . "</option>";
+                    }
+                    ?>
+                </select><br><br>
+                <?php
+                } else {
+                ?>
                 <label> User: </label><br>
                 <input type="text" value="<?php echo $_SESSION["login"] ?>" readonly><br><br>
-
+                <?php 
+                }
+                ?>
                 <label> Date: </label><br>
                 <input type="date" id="date" name="date" required placeholder="date"
                     min="<?php echo $today ?>" /><br><br>
@@ -54,8 +98,8 @@ if (isset($_GET["state"])) {
 
                 <label style="margin-left: -120px;"> Pick a Pet: </label><br>
                 <select name="pet">
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
                 </select><br><br>
 
                 <label style="margin-left: -90px;"> Pick a service: </label><br>

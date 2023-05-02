@@ -105,6 +105,8 @@
                         echo "</tr>";
                     }
                     mysqli_close($conn);
+                }else {
+                    header("location:homePage.php");
                 }
                 ?>
             </tbody>
