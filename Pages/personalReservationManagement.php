@@ -1,3 +1,23 @@
+<?php
+session_start();
+if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
+    if ($_SESSION["function"] <= 3) {
+        header("location:homePage.php?state=3");
+    }
+} else {
+    header("localtion: PgLogin.php?state=2");
+}
+if (isset($_GET["state"])) {
+    switch ($_GET["state"]) {
+        case 1:
+            echo "<script>alert('Reservation added successfully');</script>";
+            break;
+        case 2:
+            echo "<script>alert('Reservation added successfully');</script>";
+            break;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

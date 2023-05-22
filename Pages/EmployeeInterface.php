@@ -65,7 +65,7 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
   <div id="frminterface">
     <form name="f1">
       <div class="button-container">
-        <a href="Employee_ManagementReservation.php"><button class="button" type="button">MANAGEMENT OF PERSONAL
+        <a href="EmployeeReservationsManagament.php"><button class="button" type="button">MANAGEMENT OF PERSONAL
             RESERVATION</button></a>
         <button class="button" type="submit" formaction="Pgpersonal_info.php"> MANAGEMENT PERSONAL ACCOUNT</button>
       </div>
@@ -73,8 +73,6 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
 
     </form>
   </div>
-
-
 </body>
 
 </html>

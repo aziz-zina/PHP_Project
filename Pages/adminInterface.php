@@ -8,7 +8,6 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
   header("localtion: PgLogin.php?state=2");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,20 +19,17 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
   <title>Admin Interface</title>
   <style>
     #frminterface {
-
       border: solid gray 1px;
       width: 60%;
       border-radius: 80px;
       margin: 80px auto;
       background: #c3a48f;
       padding: 90px;
-
     }
 
     #box {
       position: relative;
       top: -30px;
-
     }
 
     .button-container {
@@ -86,7 +82,7 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
   <div id="frminterface">
     <form name="f1">
       <div class="button-container" id="box">
-        <a href="ADMIN_personalReservationManagement.php"><button type="button" class="button">MANAGEMENT OF
+        <a href="AdminReservationsManagement.php"><button type="button" class="button">MANAGEMENT OF
             RESERVATION</button></a>
         <a href="Pgpersonal_info.php"><button class="button" type="button"> MANAGEMENT PERSONAL ACCOUNT</button></a>
       </div>
