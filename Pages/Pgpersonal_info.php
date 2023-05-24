@@ -17,7 +17,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
     }
 
 } else {
-    header("refresh:2;url = homePage.php?state=3"); //If the form is not filled, goes back to the register page
+    header("location:homePage.php?state=3"); //If the form is not filled, goes back to the register page
 }
 
 #now update

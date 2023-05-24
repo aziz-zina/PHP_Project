@@ -14,7 +14,6 @@ if (isset($_SESSION["login"]) && isset($_GET["id"])) {
         $date = $row['date'];
         $time = $row['time'];
         $pet = $row['pet'];
-        echo $pet;
         $services = $row['serviceType'];
 
     }

@@ -105,7 +105,6 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
                     </select><br><br>
 
                     <button type="submit" class="btn btn-primary">Submit</button><br><br>
-                    <a href="homePage.php">Go back to home page</a><br><br>
                 </center>
             </form>
         </div>

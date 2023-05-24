@@ -65,6 +65,7 @@
                 <?php
                 session_start();
                 if (isset($_SESSION["login"]) && ($_SESSION["function"] == 1)) {
+                    if ($_SESSION["function"] ==1) {
                     include '../database/basedados.h';
                     $sql = "SELECT * FROM user";
                     $retval = mysqli_query($conn, $sql);
@@ -105,8 +106,9 @@
                         echo "</tr>";
                     }
                     mysqli_close($conn);
-                }else {
-                    header("location:homePage.php");
+                }
+            }else {
+                    header("location:homePage.php?state=3");
                 }
                 ?>
             </tbody>

@@ -2,7 +2,12 @@
 <html lang="en">
 <?php
 session_start();
+
 if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
+    if (($_SESSION["function"] != 1)||(empty($_GET['val']))) {
+        header("location:homePage.php?state=3");
+    }
+    
     include '../database/basedados.h';
     $val = $_GET['val'];
     $retval = mysqli_query($conn, "SELECT * FROM user WHERE Login='$val'");
@@ -21,7 +26,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
 
 } else {
 
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
+    header("location:userManagement.php"); //If the form is not filled, goes back to the register page
 }
 
 #now update

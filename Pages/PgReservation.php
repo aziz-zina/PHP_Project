@@ -122,7 +122,6 @@ if (isset($_GET["state"])) {
                 <br>
 
                 <button type="submit" class="btn btn-primary">Submit</button><br><br>
-                <a href="PgLogin.php">Login here.</a><br>
                 <a href="homePage.php">Go back to home page</a><br><br>
             </center>
         </form>

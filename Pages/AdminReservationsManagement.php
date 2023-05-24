@@ -5,7 +5,7 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
         header("location:homePage.php?state=3");
     }
 } else {
-    header("localtion: PgLogin.php?state=2");
+    header("location:PgLogin.php?state=2");
 }
 if (isset($_GET["state"])) {
     switch ($_GET["state"]) {
@@ -13,7 +13,7 @@ if (isset($_GET["state"])) {
             echo "<script>alert('Reservation added successfully');</script>";
             break;
         case 2:
-            echo "<script>alert('Reservation added successfully');</script>";
+            echo "<script>alert('Reservation removed successfully');</script>";
             break;
     }
 }

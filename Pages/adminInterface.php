@@ -4,8 +4,9 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
   if ($_SESSION["function"] != 1) {
     header("location:homePage.php?state=3");
   }
+  
 } else {
-  header("localtion: PgLogin.php?state=2");
+  header("location:PgLogin.php?state=2");
 }
 ?>
 <!DOCTYPE html>
