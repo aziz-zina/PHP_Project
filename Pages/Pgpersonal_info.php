@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 session_start();
 if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
-    include '../database/basedados.h';
-    $val = $_SESSION["login"];
-    $retval = mysqli_query($conn, "SELECT * FROM user WHERE Login='$val'");
-    if (!$retval) {
-        die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
-    }
-    while ($row = mysqli_fetch_array($retval)) {
-        $login = $row['Login'];
-        $mail = $row['Email'];
-        $name = $row['Name'];
-        $phone = $row['Telephone']; // Print a single column data
+    if($_SESSION["function"] != 4){
+        include '../database/basedados.h';
+        $val = $_SESSION["login"];
+        $retval = mysqli_query($conn, "SELECT * FROM user WHERE Login='$val'");
+        if (!$retval) {
+            die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
+        }
+        while ($row = mysqli_fetch_array($retval)) {
+            $login = $row['Login'];
+            $mail = $row['Email'];
+            $name = $row['Name'];
+            $phone = $row['Telephone']; // Print a single column data
+        }
+    } else {
+        header("location:homePage.php?state=1");
     }
 
 } else {
     header("location:homePage.php?state=3"); //If the form is not filled, goes back to the register page
 }
-
-#now update
-
-
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

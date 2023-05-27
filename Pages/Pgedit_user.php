@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 session_start();
-
 if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
     if (($_SESSION["function"] != 1)||(empty($_GET['val']))) {
         header("location:homePage.php?state=3");
     }
-    
     include '../database/basedados.h';
     $val = $_GET['val'];
     $retval = mysqli_query($conn, "SELECT * FROM user WHERE Login='$val'");
@@ -18,22 +14,14 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
         $login = $row['Login'];
         $mail = $row['Email'];
         $name = $row['Name'];
-        $phone = $row['Telephone']; // Print a single column data
-    }
-
-    //    $sqli="UPDATE user SET Email = ".$mail." , Name = ".$name." , Telephone = ".$phone."  WHERE Login =".$val."";
-    //     # $update = mysqli_query($conn,$sqli);
+        $phone = $row['Telephone'];
 
 } else {
-
-    header("location:userManagement.php"); //If the form is not filled, goes back to the register page
+    header("location:userManagement.php");
 }
-
-#now update
-
-
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

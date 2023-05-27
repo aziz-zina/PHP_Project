@@ -1,3 +1,22 @@
+<?php
+session_start();
+if (isset($_GET["state"])) {
+    switch ($_GET["state"]) {
+        case 1:
+            echo "<script>alert('User edited.');</script>";
+            break;
+        case 2:
+            echo "<script>alert('User has been deleted.');</script>";
+            break;
+        case 3:
+            echo '<script>alert("You need to fill the form first!");</script>';
+            break;
+        case 4:
+            echo '<script>alert("User has been validated");</script>';
+            break;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +82,6 @@
             </thead>
             <tbody>
                 <?php
-                session_start();
                 if (isset($_SESSION["login"]) && ($_SESSION["function"] == 1)) {
                     if ($_SESSION["function"] ==1) {
                     include '../database/basedados.h';

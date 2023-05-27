@@ -1,24 +1,27 @@
 <?php
 session_start();
-if (isset($_SESSION["login"]) && isset($_GET["id"])) {
-    include '../database/basedados.h';
-    $id = $_GET['id'];
-    $today = date("Y-m-d");
+if (isset($_SESSION["login"]) && isset($_GET["id"]) && isset($_SESSION["function"])) {
+    if($_SESSION["function"] != 4){
+        include '../database/basedados.h';
+        $id = $_GET['id'];
+        $today = date("Y-m-d");
 
-    $retval = mysqli_query($conn, "SELECT * FROM reservation WHERE idReservation='$id'");
-    if (!$retval) {
-        die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
-    }
-    while ($row = mysqli_fetch_array($retval)) {
-        $id = $row['idReservation'];
-        $date = $row['date'];
-        $time = $row['time'];
-        $pet = $row['pet'];
-        $services = $row['serviceType'];
-
+        $retval = mysqli_query($conn, "SELECT * FROM reservation WHERE idReservation='$id'");
+        if (!$retval) {
+            die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
+        }
+        while ($row = mysqli_fetch_array($retval)) {
+            $id = $row['idReservation'];
+            $date = $row['date'];
+            $time = $row['time'];
+            $pet = $row['pet'];
+            $services = $row['serviceType'];
+        }
+    } else {
+        header("Location: homePage.php?state=1");
     }
 } else {
-    header("Location: homePage.php?state=3"); //If the user doesn't choose a service, he goes back to the form
+    header("Location: personalReservationManagement.php?state=3"); //If the user doesn't choose a service, he goes back to the form
 }
 
 ?>

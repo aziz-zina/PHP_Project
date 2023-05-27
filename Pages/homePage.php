@@ -11,6 +11,9 @@ if (isset($_GET["state"])) {
         case 3:
             echo '<script>alert("You don\'t have access to this page.");</script>';
             break;
+        case 4:
+            echo '<script>alert("An error occurred!");</script>';
+            break;
     }
 }
 ?>

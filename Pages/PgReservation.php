@@ -53,7 +53,7 @@ if (isset($_GET["state"])) {
                     <option value="">--Choose a user--</option>
                     <?php
                     include '../database/basedados.h';
-                    $sql = "SELECT * FROM user WHERE Type <> 4";
+                    $sql = "SELECT * FROM user WHERE Type != 4";
                     $retval = mysqli_query($conn, $sql);
                     if (!$retval) {
                         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 

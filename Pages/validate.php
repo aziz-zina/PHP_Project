@@ -19,7 +19,7 @@
 
 <?php
 session_start();
-if (isset($_SESSION["login"])) {
+if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
 
     if ($_SESSION["function"] == 1) {
         //Storing the form values
@@ -31,7 +31,7 @@ if (isset($_SESSION["login"])) {
         $sql = "UPDATE user SET type = 3 WHERE Login ='$val' ";
 
         $update = mysqli_query($conn, $sql);
-        header("refresh:2;url = userManagement.php");
+        header("refresh:2;url = userManagement.php?state=4");
 
     } else {
         header("refresh:5;url = homePage.php?state=3"); //If the form is not filled, it goes back to the login page

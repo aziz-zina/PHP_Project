@@ -7,6 +7,14 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
 } else {
   header("location: PgLogin.php?state=2");
 }
+
+if (isset($_GET["state"])) {
+  switch ($_GET["state"]) {
+      case 1:
+          echo "<script>alert('Personal data edited');</script>";
+          break;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

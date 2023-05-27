@@ -23,7 +23,6 @@ session_start();
 if (isset($_SESSION["login"]) && ($_SESSION["function"] == 1)) {
 
     //Storing the form values
-
     $login = $_GET["val"];
 
     //Connecting to the database
@@ -36,9 +35,8 @@ if (isset($_SESSION["login"]) && ($_SESSION["function"] == 1)) {
         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
     }
     #$num = mysqli_num_rows($retval); //Checking how many rows are selected
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
+    header("refresh:2;url = userManagement.php?state=2"); //If the form is not filled, goes back to the register page
 
 } else {
-    echo "WE WILL FORWARD YOU TO THE MANAGMENET PAGE";
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
+    header("refresh:2;url = homePage.php?state=3"); //If the form is not filled, goes back to the register page
 }

@@ -19,7 +19,11 @@
 
 <?php
 session_start();
-if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"]) && isset($_POST["employee"]) && isset($_POST["user"])) {
+if (isset($_SESSION["login"]) && isset($_SESSION["function"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"]) && isset($_POST["employee"]) && isset($_POST["user"])) {
+    
+    if($_SESSION["function"] == 4 ){
+        header("refresh:2;url = homePage.php?state=1");
+    }
     //Connecting to the database
     include '../database/basedados.h';
     //Storing the form values

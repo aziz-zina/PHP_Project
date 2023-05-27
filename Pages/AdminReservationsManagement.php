@@ -15,6 +15,9 @@ if (isset($_GET["state"])) {
         case 2:
             echo "<script>alert('Reservation removed successfully');</script>";
             break;
+        case 3:
+            echo "<script>alert('A problem occurred!');</script>";
+            break;
     }
 }
 ?>
@@ -26,7 +29,7 @@ if (isset($_GET["state"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
-    <title>Personal management</title>
+    <title>User management</title>
     <style>
         body {
             background: #eee;

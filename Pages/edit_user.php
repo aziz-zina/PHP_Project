@@ -19,31 +19,36 @@
 
 <?php
 session_start();
+if (isset($_POST["login"]) && isset($_POST["tel"]) && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_SESSION["function"])) {
+    if($_SESSION["function"] == 1){
+        //Storing the form values
+        $login = $_POST["login"];
+        $name = $_POST["name"];
+        $tel = $_POST["tel"];
+        $email = $_POST["email"];
+        $password = $_POST["pass"];
+        //Connecting to the database
+        include '../database/basedados.h';
 
-if ((isset($_POST["login"]) && isset($_POST["tel"]) && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pass"]))) {
-    //Storing the form values
-    $login = $_POST["login"];
-    $name = $_POST["name"];
-    $tel = $_POST["tel"];
-    $email = $_POST["email"];
-    $password = $_POST["pass"];
-    //Connecting to the database
-    include '../database/basedados.h';
-
-    $sqli = "UPDATE user 
-    SET Email = '$email',
-     Name = '$name',
-     Password   = '$password',
-      Telephone = '$tel'
-      WHERE Login ='$login'";
-    $retval = mysqli_query($conn, $sqli);
-    if (!$retval) {
-        die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
+        $sqli = "UPDATE user 
+        SET Email = '$email',
+        Name = '$name',
+        Password   = '$password',
+        Telephone = '$tel'
+        WHERE Login ='$login'";
+        $retval = mysqli_query($conn, $sqli);
+        if (!$retval) {
+            die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
+        }
+        #$num = mysqli_num_rows($retval); //Checking how many rows are selected
+        header("refresh:2;url = userManagement.php?state=1");
+    }else {
+        header("refresh:2;url = homePage.php?state=3");
     }
-    #$num = mysqli_num_rows($retval); //Checking how many rows are selected
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
 
 } else {
-    echo "WE WILL FORWARD YOU TO THE MANAGMENET PAGE";
-    header("refresh:2;url = userManagement.php"); //If the form is not filled, goes back to the register page
+    else {
+        header("refresh:2;url = userManagement.php?state=3"); //If the form is not filled, goes back to the user management page
+    }
+
 }

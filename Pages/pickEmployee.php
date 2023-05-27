@@ -2,6 +2,9 @@
 session_start();
 if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
     $login = $_SESSION["login"];
+    if($_SESSION["function"] == 4){
+        header("location:homePage.php?state=1");
+    }
     if ($_SESSION["function"] < 3) {
         if (isset($_POST["user"])) {
             $user = $_POST["user"];

@@ -4,9 +4,16 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
   if ($_SESSION["function"] != 1) {
     header("location:homePage.php?state=3");
   }
-  
 } else {
   header("location:PgLogin.php?state=2");
+}
+
+if (isset($_GET["state"])) {
+  switch ($_GET["state"]) {
+      case 1:
+          echo "<script>alert('Personal data edited');</script>";
+          break;
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -83,18 +90,14 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"])) {
   <div id="frminterface">
     <form name="f1">
       <div class="button-container" id="box">
-        <a href="AdminReservationsManagement.php"><button type="button" class="button">MANAGEMENT OF
-            RESERVATION</button></a>
+        <a href="AdminReservationsManagement.php"><button type="button" class="button">MANAGEMENT OF RESERVATION</button></a>
         <a href="Pgpersonal_info.php"><button class="button" type="button"> MANAGEMENT PERSONAL ACCOUNT</button></a>
       </div>
       <a href="userManagement.php"><button class="button2" type="button"> USER MANAGEMENT</button></a>
       <br>
       <a href="./homePage.php"><img src="./home.png" alt="home.png"></a>
-
     </form>
   </div>
-
-
 </body>
 
 </html>
