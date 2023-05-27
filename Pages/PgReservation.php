@@ -85,7 +85,7 @@ if (isset($_GET["state"])) {
                 } else {
                 ?>
                 <label> User: </label><br>
-                <input type="text" value="<?php echo $_SESSION["login"] ?>" readonly><br><br>
+                <input type="text" name="user" value="<?php echo $_SESSION["login"] ?>" readonly><br><br>
                 <?php 
                 }
                 ?>

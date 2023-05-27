@@ -27,8 +27,8 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"]) && isset($_POST["d
     //Connecting to the database
     include '../database/basedados.h';
     //Storing the form values
-    $login = $_POST["user"];
-    echo $login;
+    $user = $_POST["user"];
+    echo $user;
     $date = $_POST["date"];
     $time = $_POST["time"];
     $pet = $_POST["pet"];
@@ -50,7 +50,7 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"]) && isset($_POST["d
         }
     } else {
         //INSERT Query
-        $sql = "INSERT INTO reservation (idClient, date, time, pet, serviceType, EmployeeUser) VALUES ('$login', '$date', '$time', '$pet', '$service', '$employee')";
+        $sql = "INSERT INTO reservation (idClient, date, time, pet, serviceType, EmployeeUser) VALUES ('$user', '$date', '$time', '$pet', '$service', '$employee')";
     }
     $retval = mysqli_query($conn, $sql);
     if (mysqli_affected_rows($conn) == 1) {

@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION["login"]) && isset($_POST["user"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
     
     $user = $_POST["user"];
+    echo $user;
     if($_SESSION["function"] == 4){
         header("location:homePage.php?state=1");
     }
