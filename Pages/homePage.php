@@ -102,6 +102,37 @@ if (isset($_GET["state"])) {
             </div>
         </div>
     </div>
+    <h1 class="heading" style="margin:30px; margin-left:100px;"> Our location </h1>
+    <section class="contact" id="contact">
+        <div class="row">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.2558156862706!2d-7.490529188499693!3d39.82368179140217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3d5c299763e2ad%3A0xf22a9faa975a4b94!2sIdealPet%20-%20Andreia%20Nabais!5e0!3m2!1sen!2spt!4v1685205888815!5m2!1sen!2spt"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="info">
+                <div class="salon-info">
+                    <h2>Pets' Hair Saloon</h2>
+                    <p>R. Prior Vasconcelos 34, 6000-247 Castelo Branco</p>
+                    <p>Phone: 123-456-7890</p>
+                    <p>Everyday: 9am - 6:00pm</p>
+                </div>
+                <div class="img">
+                    <img src="../Pages/paw.png">
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2023 Pets' Hair Saloon. All rights reserved.</p>
+    </footer>
+
+
 </body>
 
 </html>

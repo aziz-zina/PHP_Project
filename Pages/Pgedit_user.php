@@ -15,7 +15,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
         $mail = $row['Email'];
         $name = $row['Name'];
         $phone = $row['Telephone'];
-
+    }
 } else {
     header("location:userManagement.php");
 }

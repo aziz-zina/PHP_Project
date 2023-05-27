@@ -47,8 +47,5 @@ if (isset($_POST["login"]) && isset($_POST["tel"]) && isset($_POST["name"]) && i
     }
 
 } else {
-    else {
-        header("refresh:2;url = userManagement.php?state=3"); //If the form is not filled, goes back to the user management page
-    }
-
+    header("refresh:2;url = userManagement.php?state=3"); //If the form is not filled, goes back to the user management page
 }
