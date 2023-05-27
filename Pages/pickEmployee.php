@@ -1,10 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION["login"]) && isset($_POST["idClient"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
-    if(isset($_POST["idReservation"])){
-        $id = $_POST["idReservation"];
-    }
-    $user = $_POST["idClient"];
+if (isset($_SESSION["login"]) && isset($_POST["user"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
+    
+    $user = $_POST["user"];
     if($_SESSION["function"] == 4){
         header("location:homePage.php?state=1");
     }
@@ -47,7 +45,12 @@ if (isset($_SESSION["login"]) && isset($_POST["idClient"]) && isset($_POST["date
     <body>
         <div id="frm2">
             <form name="f1" action="Reservation.php" method="POST">
-                <input type="hidden" name="idReservation" value="<?php echo $id ?>" />
+                <?php
+                if(isset($_POST["idReservation"])){
+                ?>
+                    <input type="hidden" name="idReservation" value="<?php echo $id ?>" readonly/>
+                <?php }
+                ?>
                 <center>
                     <label> User: </label><br>
                     <input type="text" name="user" value="<?php echo $user ?>" readonly><br><br>

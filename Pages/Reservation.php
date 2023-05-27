@@ -28,6 +28,7 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"]) && isset($_POST["d
     include '../database/basedados.h';
     //Storing the form values
     $login = $_POST["user"];
+    echo $login;
     $date = $_POST["date"];
     $time = $_POST["time"];
     $pet = $_POST["pet"];
@@ -39,22 +40,21 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"]) && isset($_POST["d
         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
     }
     $num = mysqli_num_rows($retval); //Checking how many rows are selected
-    if ($num >= 1) {
-        header("refresh:2;url = PgReservation.php?state=3"); //If there is no row selected, goes back to the login page
-        die();
-    } else {
-        //INSERT Query
+    if ($num == 1) {
         if (isset($_POST["idReservation"])) {
             $id = $_POST["idReservation"];
             $sql = "UPDATE reservation SET 	EmployeeUser = '$employee', date = '$date', time = '$time', pet = '$pet', serviceType = '$service' WHERE idReservation = '$id'";
-        } else {
-            $sql = "INSERT INTO reservation (idClient, date, time, pet, serviceType, EmployeeUser) VALUES ('$login', '$date', '$time', '$pet', '$service', '$employee')";
+        } else{
+            header("refresh:2;url = PgReservation.php?state=3"); //If there is no row selected, goes back to the login page
+            die();
         }
-        $retval = mysqli_query($conn, $sql);
-
-        if (mysqli_affected_rows($conn) == 1) {
-            header("refresh:2;url = homePage.php");
-        }
+    } else {
+        //INSERT Query
+        $sql = "INSERT INTO reservation (idClient, date, time, pet, serviceType, EmployeeUser) VALUES ('$login', '$date', '$time', '$pet', '$service', '$employee')";
+    }
+    $retval = mysqli_query($conn, $sql);
+    if (mysqli_affected_rows($conn) == 1) {
+       header("refresh:2;url = homePage.php");
     }
 } else {
     header("refresh:2;url = PgReservation.php?state=1"); //If the form is not filled, goes back to the reservation page

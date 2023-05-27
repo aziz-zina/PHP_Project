@@ -12,7 +12,7 @@ if (isset($_SESSION["login"]) && isset($_GET["id"]) && isset($_SESSION["function
         }
         while ($row = mysqli_fetch_array($retval)) {
             $idClient = $row['idClient'];
-            $id = $row['idReservation'];
+            $id = $_GET["id"];
             $date = $row['date'];
             $time = $row['time'];
             $pet = $row['pet'];
@@ -51,7 +51,7 @@ if (isset($_SESSION["login"]) && isset($_GET["id"]) && isset($_SESSION["function
             <input type="hidden" name="idReservation" value="<?php echo $id ?>" />
             <center>
                 <label> User: </label><br>
-                <input type="text" value="<?php echo $idClient ?>" readonly name="idClient"><br><br>
+                <input type="text" name="user" value="<?php echo $idClient ?>" readonly ><br><br>
 
                 <label> Date: </label><br>
                 <input type="date" id="date" name="date" required placeholder="date" min="<?php echo $today ?>"
