@@ -11,6 +11,7 @@ if (isset($_SESSION["login"]) && isset($_GET["id"]) && isset($_SESSION["function
             die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 
         }
         while ($row = mysqli_fetch_array($retval)) {
+            $idClient = $row['idClient'];
             $id = $row['idReservation'];
             $date = $row['date'];
             $time = $row['time'];
@@ -50,7 +51,7 @@ if (isset($_SESSION["login"]) && isset($_GET["id"]) && isset($_SESSION["function
             <input type="hidden" name="idReservation" value="<?php echo $id ?>" />
             <center>
                 <label> User: </label><br>
-                <input type="text" value="<?php echo $_SESSION["login"] ?>" readonly><br><br>
+                <input type="text" value="<?php echo $idClient ?>" readonly name="idClient"><br><br>
 
                 <label> Date: </label><br>
                 <input type="date" id="date" name="date" required placeholder="date" min="<?php echo $today ?>"

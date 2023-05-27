@@ -1,16 +1,12 @@
 <?php
 session_start();
-if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
-    $login = $_SESSION["login"];
+if (isset($_SESSION["login"]) && isset($_POST["idClient"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
+    if(isset($_POST["idReservation"])){
+        $id = $_POST["idReservation"];
+    }
+    $user = $_POST["idClient"];
     if($_SESSION["function"] == 4){
         header("location:homePage.php?state=1");
-    }
-    if ($_SESSION["function"] < 3) {
-        if (isset($_POST["user"])) {
-            $user = $_POST["user"];
-        } else {
-            header("location:PgReservation.php?state=1");
-        }
     }
     $date = $_POST["date"];
     $time = $_POST["time"];
@@ -51,15 +47,10 @@ if (isset($_SESSION["login"]) && isset($_POST["date"]) && isset($_POST["time"]) 
     <body>
         <div id="frm2">
             <form name="f1" action="Reservation.php" method="POST">
+                <input type="hidden" name="idReservation" value="<?php echo $id ?>" />
                 <center>
                     <label> User: </label><br>
-                    <?php
-                    if (isset($_POST["user"])) {
-                        echo "<input type='text' name='user' value='" . $user . "' readonly><br><br>";
-                    } else {
-                        echo "<input type='text' name='user' value='" . $login . "' readonly><br><br>";
-                    }
-                    ?>
+                    <input type="text" name="user" value="<?php echo $user ?>" readonly><br><br>
 
                     <label> Pet: </label><br>
                     <input type="text" name="pet" value="<?php echo $pet ?>" readonly><br><br>
