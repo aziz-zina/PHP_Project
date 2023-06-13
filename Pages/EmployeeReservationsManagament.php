@@ -86,7 +86,7 @@ if (isset($_GET["state"])) {
                 <?php
                 if (isset($_SESSION["login"])) {
                     include '../database/basedados.h';
-                    $sql = "SELECT * FROM reservation where EmployeeUser='" . $_SESSION["login"] . "' ORDER BY time ";
+                    $sql = "SELECT * FROM reservation AS r INNER JOIN user as U1 ON r.idClient = U1.Login INNER JOIN user as U2 ON 	r.EmployeeUser = U2.Login where EmployeeUser='" . $_SESSION["login"] . "' ORDER BY time ";
                     $retval = mysqli_query($conn, $sql);
                     if (!$retval) {
                         die('Could not get data: ' . mysqli_error($conn)); //Gives an error if it doesn't work 

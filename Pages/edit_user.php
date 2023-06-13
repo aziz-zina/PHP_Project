@@ -19,7 +19,7 @@
 
 <?php
 session_start();
-if (isset($_POST["login"]) && isset($_POST["tel"]) && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_SESSION["function"])) {
+if (isset($_POST["login"]) && isset($_POST["tel"]) && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_SESSION["function"]) && isset($_SESSION["login"]) && isset($_POST["type"])) {
     if($_SESSION["function"] == 1){
         //Storing the form values
         $login = $_POST["login"];
@@ -27,6 +27,7 @@ if (isset($_POST["login"]) && isset($_POST["tel"]) && isset($_POST["name"]) && i
         $tel = $_POST["tel"];
         $email = $_POST["email"];
         $password = $_POST["pass"];
+        $type = $_POST["type"];
         //Connecting to the database
         include '../database/basedados.h';
 
@@ -34,7 +35,8 @@ if (isset($_POST["login"]) && isset($_POST["tel"]) && isset($_POST["name"]) && i
         SET Email = '$email',
         Name = '$name',
         Password   = '$password',
-        Telephone = '$tel'
+        Telephone = '$tel',
+        Type = '$type'
         WHERE Login ='$login'";
         $retval = mysqli_query($conn, $sqli);
         if (!$retval) {

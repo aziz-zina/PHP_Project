@@ -1,28 +1,20 @@
 <?php
 session_start();
 if (isset($_SESSION["login"]) && isset($_POST["user"]) && isset($_POST["date"]) && isset($_POST["time"]) && isset($_POST["pet"]) && isset($_POST["service"])) {
-    
+
     $user = $_POST["user"];
     echo $user;
-    if($_SESSION["function"] == 4){
+    if ($_SESSION["function"] == 4) {
         header("location:homePage.php?state=1");
     }
     $date = $_POST["date"];
+    echo $date;
     $time = $_POST["time"];
+    echo $time;
     $pet = $_POST["pet"];
+    echo $pet;
     $services = $_POST["service"];
-    //Checking the service type
-    if (count($services) == 1) {
-        $srv = $services[0];
-    } else if (count($services) == 2) {
-        $srv = "Both";
-    } else {
-        header("refresh:2;url = PgReservation.php?state=2"); //If the user doesn't choose a service, he goes back to the form
-    }
-    if (isset($_POST["idReservation"])) {
-        $id = $_POST["idReservation"];
-        echo "<input type='hidden' name='idReservation' value='" . $id . "' />";
-    }
+    echo $services;
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -47,10 +39,10 @@ if (isset($_SESSION["login"]) && isset($_POST["user"]) && isset($_POST["date"]) 
         <div id="frm2">
             <form name="f1" action="Reservation.php" method="POST">
                 <?php
-                if(isset($_POST["idReservation"])){
-                ?>
-                    <input type="hidden" name="idReservation" value="<?php echo $id ?>" readonly/>
-                <?php }
+                if (isset($_POST["idReservation"])) {
+                    $id = $_POST["idReservation"];
+                    echo "<input type='hidden' name='idReservation' value='" . $id . "' />";
+                }
                 ?>
                 <center>
                     <label> User: </label><br>
@@ -60,7 +52,7 @@ if (isset($_SESSION["login"]) && isset($_POST["user"]) && isset($_POST["date"]) 
                     <input type="text" name="pet" value="<?php echo $pet ?>" readonly><br><br>
 
                     <label style="margin-left: -140px;"> Service: </label><br>
-                    <input type="text" name="service" value="<?php echo $srv ?>" readonly><br><br>
+                    <input type="text" name="service" value="<?php echo $services ?>" readonly><br><br>
 
                     <label> Date: </label><br>
                     <input type="date" id="date" name="date" required placeholder="date" value="<?php echo $date ?>"
@@ -74,18 +66,18 @@ if (isset($_SESSION["login"]) && isset($_POST["user"]) && isset($_POST["date"]) 
                         <option value="">--- Choose an employee ---</option>
                         <?php
                         include '../database/basedados.h';
-                        if ($pet == "dog") {
-                            if ($srv == "Cut") {
+                        if ($pet == "Dog") {
+                            if ($services == "Cut") {
                                 $sql = "SELECT * FROM employeeact WHERE Dog = 1 AND Cut = 1";
-                            } else if ($srv == "Wash") {
+                            } else if ($services == "Wash") {
                                 $sql = "SELECT * FROM employeeact WHERE Dog = 1 AND Wash = 1";
                             } else {
                                 $sql = "SELECT * FROM employeeact WHERE Dog = 1 AND Wash = 1 AND Cut = 1";
                             }
                         } else {
-                            if ($srv == "Cut") {
+                            if ($services == "Cut") {
                                 $sql = "SELECT * FROM employeeact WHERE Cat = 1 AND Cut = 1";
-                            } else if ($srv == "Wash") {
+                            } else if ($services == "Wash") {
                                 $sql = "SELECT * FROM employeeact WHERE Cat = 1 AND Wash = 1";
                             } else {
                                 $sql = "SELECT * FROM employeeact WHERE Cat = 1 AND Wash = 1 AND Cut = 1";

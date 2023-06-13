@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
-    if (($_SESSION["function"] != 1)||(empty($_GET['val']))) {
+    if (($_SESSION["function"] != 1) || (empty($_GET['val']))) {
         header("location:homePage.php?state=3");
     }
     include '../database/basedados.h';
@@ -15,6 +15,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
         $mail = $row['Email'];
         $name = $row['Name'];
         $phone = $row['Telephone'];
+        $type = $row['Type'];
     }
 } else {
     header("location:userManagement.php");
@@ -22,6 +23,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +35,7 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
 
 <body>
     <div id="frm2">
-        <form name="f1" action="edit_user.php" method="POST">
+        <form name="f1" action="loading.php" method="POST">
             <center>
                 <label> Login: </label><br>
                 <input type="text" id="login" readonly name="login" required placeholder="Login"
@@ -51,6 +53,8 @@ if ((isset($_SESSION["login"]) && isset($_SESSION["function"]))) {
                 <input type="tel" id="tel" name="tel" required placeholder="Telephone number"
                     value="<?php echo $phone ?>" /><br><br>
 
+                <label style="margin-left: -126px;"> Type: </label><br>
+                <input type="number" id="type" name="type" required placeholder="Type" value="<?php echo $type ?>" min="1" max="4"/><br><br>
 
                 <label style="margin-left: -126px;"> Password: </label><br>
                 <input type="password" id="pass" name="pass" required placeholder="Password" /><br><br>

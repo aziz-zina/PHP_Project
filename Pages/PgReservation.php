@@ -43,7 +43,7 @@ if (isset($_GET["state"])) {
 
 <body>
     <div id="frm2">
-        <form name="f1" action="pickEmployee.php" method="POST">
+        <form name="f1" action="Check_date_time.php" method="POST">
             <center>
                 <?php
                 if($_SESSION["function"] == 1){

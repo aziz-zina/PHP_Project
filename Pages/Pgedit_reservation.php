@@ -35,7 +35,7 @@ if (isset($_SESSION["login"]) && isset($_GET["id"]) && isset($_SESSION["function
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Form.css">
     <link rel="stylesheet" href="bootstrap.css">
-    <title>Reservation</title>
+    <title>Edit Reservation</title>
     <style>
         .check-box {
             display: grid;
@@ -47,7 +47,7 @@ if (isset($_SESSION["login"]) && isset($_GET["id"]) && isset($_SESSION["function
 
 <body>
     <div id="frm2">
-        <form name="f1" action="pickEmployee.php" method="POST">
+        <form name="f1" action="Check_date_time.php" method="POST">
             <input type="hidden" name="idReservation" value="<?php echo $id ?>" />
             <center>
                 <label> User: </label><br>
