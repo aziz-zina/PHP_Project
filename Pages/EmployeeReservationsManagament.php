@@ -74,6 +74,7 @@ if (isset($_GET["state"])) {
             <thead style="background-color: #c3a48f;">
                 <tr>
                     <th scope="col" style="color: black;">Date</th>
+                    <th scope="col" style="color: black;">Name</th>
                     <th scope="col" style="color: black;">Time</th>
                     <th scope="col" style="color: black;">Pet</th>
                     <th scope="col" style="color: black;">Service Type</th>
@@ -93,6 +94,7 @@ if (isset($_GET["state"])) {
                     }
                     while ($row = mysqli_fetch_array($retval)) {
                         echo "<tr class='table-secondary'><td>" . $row['date'] . "</td>";
+                        echo "<td>" . $row['idClient'] . "</td>";
                         echo "<td>" . $row['time'] . "</td>";
                         echo "<td>" . $row['pet'] . "</td>";
                         echo "<td>" . $row['serviceType'] . "</td>";
