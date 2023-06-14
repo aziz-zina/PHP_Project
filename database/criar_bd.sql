@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2023 at 02:14 AM
+-- Generation Time: Jun 14, 2023 at 06:13 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -71,7 +71,8 @@ INSERT INTO `reservation` (`idReservation`, `idClient`, `date`, `time`, `pet`, `
 (12, 'joana', '2023-06-14', '18:00:00', 'Dog', 'Cut', 'joana'),
 (18, 'client', '2023-07-05', '17:00:00', 'Dog', 'Cut', 'joao'),
 (19, 'client', '2023-07-05', '10:00:00', 'Dog', 'Cut', 'joao'),
-(20, 'joao', '2023-07-05', '14:00:00', 'Dog', 'Cut', 'joao');
+(20, 'joao', '2023-07-05', '14:00:00', 'Dog', 'Cut', 'joao'),
+(21, 'rafik', '2023-06-15', '10:00:00', 'Dog', 'Cut', 'joao');
 
 -- --------------------------------------------------------
 
@@ -137,7 +138,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `idReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
