@@ -43,7 +43,7 @@ if (isset($_SESSION["login"]) && isset($_SESSION["function"]) && isset($_POST["d
     }
     $retval = mysqli_query($conn, $sql);
     if (mysqli_affected_rows($conn) == 1) {
-        header("refresh:2;url = homePage.php");
+        header("refresh:2;url = Redirection.php");
     }
 } else {
     header("refresh:2;url = PgReservation.php?state=1"); //If the form is not filled, goes back to the reservation page
